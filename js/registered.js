@@ -1,9 +1,7 @@
-/**
- * Created by dell on 16-12-28.
- */
-//$(document).ready(function(){
-//    time()
-//})
+$(document).ready(function(){
+    sms_time()
+    register_button()
+})
 var wait=60;
 function time(o) {
     if (wait == 0) {
@@ -20,13 +18,27 @@ function time(o) {
             1000)
     }
 }
-document.getElementById("sms").onclick=function(){
-    if(true) {
-        time(this);
-        //AV.User.requestLoginSmsCode($scope.loginPhone).then(function (success) {
-        //    console.log('***********fd**********')
-        //}, function (error) {
-        //    console.log(error)
-        //});
-    }
+function sms_time(){
+    $("#sms").click(function(){
+        if(true) {
+            time(this);
+        }
+    })
+}
+function show_remind(id_item) {
+    $('#remind_'+id_item.id).removeClass("hide")
+}
+function hide_remind(id_item){
+    $('#remind_'+id_item.id).addClass('hide')
+}
+
+function register_button(){
+    var b =[];
+    $(".login_button").click(function(){
+        for(var i=0;i<17;i++){
+            var a =$("#user_info"+i).val() ;
+            b.push(a)
+        }
+        console.log(b)
+    })
 }
